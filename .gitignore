@@ -18,10 +18,20 @@
 !/log/.keep
 !/tmp/.keep
 
+# Ignore uploaded files in development.
+/storage/*
+!/storage/.keep
+/tmp/storage/*
+!/tmp/storage/
+!/tmp/storage/.keep
+
 # Ignore pidfiles, but keep the directory.
 /tmp/pids/*
 !/tmp/pids/
 !/tmp/pids/.keep
+
+# Ignore Byebug command history file.
+.byebug_history
 
 # Ignore Byebug command history file.
 .byebug_history
@@ -32,13 +42,6 @@ dump.rdb
 # Ignore structure
 db/structure.sql
 db/logs_structure.sql
-
-# Ignore uploaded files in development.
-/storage/*
-!/storage/.keep
-/tmp/storage/*
-!/tmp/storage/
-!/tmp/storage/.keep
 
 /public/assets
 
