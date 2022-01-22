@@ -34,6 +34,9 @@ gem "tailwindcss-rails"
 # Use Redis adapter to run Action Cable in production
 gem "redis", "~> 4.0"
 
+# Use Devise for authentication of users
+gem "devise"
+
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 
