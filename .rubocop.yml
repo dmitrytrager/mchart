@@ -59,6 +59,8 @@ Style/HashAsLastArrayItem:
   Enabled: false
 Style/StringConcatenation:
   Enabled: false
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
 
 Metrics/BlockLength:
   Enabled: false
