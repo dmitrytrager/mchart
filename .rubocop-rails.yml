@@ -77,7 +77,7 @@ Rails/NegateInclude:
   Enabled: true
 
 Rails/Pluck:
-  Enabled: false
+  Enabled: true
 
 Rails/PluckId:
   Enabled: true
@@ -110,4 +110,19 @@ Rails/WhereExists:
   Enabled: true
 
 Rails/WhereNot:
+  Enabled: true
+
+Rails/CompactBlank: # new in 2.13
+  Enabled: true
+
+Rails/DurationArithmetic: # new in 2.13
+  Enabled: true
+
+Rails/RedundantPresenceValidationOnBelongsTo: # new in 2.13
+  Enabled: true
+
+Rails/RedundantTravelBack: # new in 2.12
+  Enabled: true
+
+Rails/RootJoinChain: # new in 2.13
   Enabled: true
