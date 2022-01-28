@@ -7,7 +7,7 @@
 .DS_Store
 /.vscode
 .idea
-/vendor/*
+/vendor/ruby/*
 
 # Ignore bundler config.
 /.bundle
