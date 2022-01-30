@@ -11,5 +11,10 @@ html
     = javascript_importmap_tags
 
   body
+    = render "navigation"
+    = render "messages"
+
     main class="container mx-auto mt-28 px-5 flex"
       = yield
+
+    = render "footer"
