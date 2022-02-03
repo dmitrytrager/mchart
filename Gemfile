@@ -37,6 +37,9 @@ gem "slim-rails"
 # Use view_component to manage components and markup
 gem "view_component"
 
+# Use simple_form to build forms
+gem "simple_form"
+
 # Use Redis adapter to run Action Cable in production
 gem "redis", "~> 4.0"
 

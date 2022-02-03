@@ -11,10 +11,10 @@ html
     = javascript_importmap_tags
 
   body
-    = render Application::NavigationComponent.new
-    = render Application::MessagesComponent.new(flash: flash)
+    = render ::Application::NavigationComponent.new
+    = render ::Application::MessagesComponent.new(flash: flash)
 
     main class="container mx-auto mt-28 px-5 flex"
       = yield
 
-    = render Application::FooterComponent.new
+    = render ::Application::FooterComponent.new
