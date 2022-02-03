@@ -14,7 +14,8 @@ html
     = render ::Application::NavigationComponent.new
     = render ::Application::MessagesComponent.new(flash: flash)
 
-    main class="container mx-auto mt-28 px-5 flex"
-      = yield
+    main.container.mx-auto.mt-28.px-5.flex
+      .md:grid.md:grid-cols-3.md:gap-6
+        = yield
 
     = render ::Application::FooterComponent.new

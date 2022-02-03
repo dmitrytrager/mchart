@@ -168,6 +168,8 @@ GEM
     fiber-local (1.0.0)
     globalid (1.0.0)
       activesupport (>= 5.0)
+    heroicon (0.4.0)
+      rails (>= 5.2)
     i18n (1.8.11)
       concurrent-ruby (~> 1.0)
     importmap-rails (1.0.2)
@@ -335,6 +337,9 @@ GEM
     simple_form (5.1.0)
       actionpack (>= 5.2)
       activemodel (>= 5.2)
+    simple_form_tailwind_css (0.0.2)
+      heroicon
+      simple_form
     slim (4.1.0)
       temple (>= 0.7.6, < 0.9)
       tilt (>= 2.0.6, < 2.1)
@@ -409,6 +414,7 @@ DEPENDENCIES
   rubocop-rails
   rubocop-rspec
   simple_form
+  simple_form_tailwind_css
   slim-rails
   slim_lint
   sprockets-rails

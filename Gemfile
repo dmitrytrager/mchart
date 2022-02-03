@@ -39,6 +39,7 @@ gem "view_component"
 
 # Use simple_form to build forms
 gem "simple_form"
+gem "simple_form_tailwind_css"
 
 # Use Redis adapter to run Action Cable in production
 gem "redis", "~> 4.0"
