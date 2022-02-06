@@ -99,6 +99,7 @@ GEM
       async
     async-pool (0.3.9)
       async (>= 1.25)
+    awesome_print (1.9.2)
     bcrypt (3.1.16)
     bindex (0.8.1)
     build-environment (1.13.0)
@@ -396,6 +397,7 @@ PLATFORMS
 
 DEPENDENCIES
   administrate
+  awesome_print
   capybara
   cuprite
   database_cleaner
