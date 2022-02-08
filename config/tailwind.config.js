@@ -5,7 +5,8 @@ module.exports = {
     './app/helpers/**/*.rb',
     './app/javascript/**/*.js',
     './app/components/**/*',
-    './app/views/**/*'
+    './app/views/**/*',
+    './config/initializers/simple_form.rb'
   ],
   theme: {
     extend: {

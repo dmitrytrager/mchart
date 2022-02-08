@@ -7,6 +7,8 @@ div
     = render "devise/shared/error_messages", resource: resource
 
     = f.input :email, as: :email, autofocus: true, autocomplete: "email", placeholder: "asmith@example.com", label: "Email"
+    = f.input :full_name, as: :string, autofocus: true, autocomplete: "name", placeholder: "John Smith", label: "Full name"
+    = f.input :nickname, as: :string, autofocus: true, autocomplete: "name", placeholder: "john", label: "Nickname"
 
     - if devise_mapping.confirmable? && resource.pending_reconfirmation?
       div
