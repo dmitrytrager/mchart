@@ -1,2 +1,2 @@
-web: bin/rails server -p 3000
+app: bundle exec falcon serve -b http://0.0.0.0:9292
 css: bin/rails tailwindcss:watch
