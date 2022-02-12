@@ -36,5 +36,8 @@ module MChart
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+    # console do
+    #   ARGV.push "-r", root.join("config/initializers/console_prompt.rb")
+    # end
   end
 end
