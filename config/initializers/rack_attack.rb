@@ -2,6 +2,8 @@
 
 # NB: `req` is a Rack::Request object (basically an env hash with friendly accessor methods)
 
+BAD_IPS = []
+
 # Throttle 10 requests/ip/second
 # NB: return value of block is key name for counter
 #     falsy values bypass throttling
@@ -21,7 +23,7 @@ end
 
 # blocklist bad IPs from accessing admin pages
 Rack::Attack.blocklist "bad_ips from logging in" do |req|
-  req.path =~ %r{^\/admin} && bad_ips.include?(req.ip)
+  req.path =~ %r{^\/admin} && BAD_IPS.include?(req.ip)
 end
 
 # safelist a User-Agent
