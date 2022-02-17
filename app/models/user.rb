@@ -5,4 +5,6 @@ class User < ApplicationRecord
     :recoverable, :rememberable, :confirmable,
     :validatable, :lockable, :timeoutable,
     :trackable # , :omniauthable
+
+  has_many :charts
 end

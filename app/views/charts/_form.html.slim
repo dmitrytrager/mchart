@@ -1,0 +1,8 @@
+div
+  = simple_form_for(chart) do |f|
+    = render "devise/shared/error_messages", resource: chart
+
+    = f.input :title, as: :string, autofocus: true, label: "Title"
+    = f.input :description, as: :string, autofocus: true, label: "Description"
+
+    = f.submit "Save"
