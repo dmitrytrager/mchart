@@ -15,7 +15,7 @@ IRB.conf[:PROMPT][:RAILS_APP] = {
   PROMPT_N: nil,
   PROMPT_S: nil,
   PROMPT_C: nil,
-  RETURN:   "=> %s\n"
+  RETURN: "=> %s\n",
 }
 
 IRB.conf[:PROMPT_MODE] = :RAILS_APP

@@ -23,6 +23,6 @@ class ChartsController < ApplicationController
   end
 
   def chart_params
-    params.require(:chart).permit(:title, :description, items: [:caption, :text])
+    params.require(:chart).permit(:title, :description, items: %i[caption text])
   end
 end

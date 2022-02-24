@@ -2,7 +2,7 @@
 
 # NB: `req` is a Rack::Request object (basically an env hash with friendly accessor methods)
 
-BAD_IPS = []
+BAD_IPS = [].freeze
 
 # Throttle 10 requests/ip/second
 # NB: return value of block is key name for counter
