@@ -9,5 +9,7 @@ class CreateCharts < ActiveRecord::Migration[7.0]
 
       t.timestamps
     end
+
+    add_index :charts, :items, using: :gin
   end
 end

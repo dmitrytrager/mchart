@@ -13,7 +13,7 @@ class ChartsController < ApplicationController
 
   def create
     @chart = charts.build(chart_params)
-    @chart.save ? redirect_to(charts_path) : render(:new)
+    @chart.save ? redirect_to(charts_path, format: :html) : render(:new)
   end
 
   private
@@ -23,6 +23,6 @@ class ChartsController < ApplicationController
   end
 
   def chart_params
-    params.require(:chart).permit(:title, :description, items: [])
+    params.require(:chart).permit(:title, :description, items: [:caption, :text])
   end
 end
