@@ -75,6 +75,7 @@ group :development, :test do
 
   gem "factory_bot_rails"
   gem "faker"
+  gem "mutant-rspec"
   gem "rspec-rails"
 
   gem "rubocop", require: false
