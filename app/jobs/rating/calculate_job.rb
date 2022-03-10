@@ -5,7 +5,7 @@ class Rating::CalculateJob < ApplicationJob
 
   def perform
     User.find_in_batches do |user|
-      user.update(rating: user.cumulative_rating)
+      user.update(rating: user.median_rating)
     end
   end
 end

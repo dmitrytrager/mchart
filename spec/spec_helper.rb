@@ -5,6 +5,7 @@ RSpec.configure do |config|
 
   config.expect_with :rspec do |c|
     c.syntax = :expect
+    c.include_chain_clauses_in_custom_matcher_descriptions = true
   end
 
   config.mock_with :rspec do |mocks|

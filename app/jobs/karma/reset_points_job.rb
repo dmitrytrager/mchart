@@ -5,7 +5,7 @@ class Karma::ResetPointsJob < ApplicationJob
 
   def perform
     User.find_in_batches do |user|
-      user.update(karma_points: 3)
+      user.update(karma_points: user.karma)
     end
   end
 end

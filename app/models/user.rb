@@ -9,7 +9,6 @@ class User < ApplicationRecord
   has_many :charts
   has_many :comments
   has_many :karma_votes, foreign_key: :voter_id
-  # has_many :rating_votes, foreign_key: :voter_id
 
   MAX_KARMA_ZERO_RATING = 4
 
@@ -18,7 +17,11 @@ class User < ApplicationRecord
   end
 
   def cumulative_rating
-    charts.sum { |chart| chart.likes.count } +
-      comments.sum { |comment| comment.likes.count }
+    charts.sum { |chart| chart.likes.size } +
+      comments.sum { |comment| comment.likes.size }
+  end
+
+  def median_rating
+    MedianRating.new(charts, comments).call
   end
 end
