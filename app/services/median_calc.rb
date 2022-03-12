@@ -7,21 +7,22 @@ class MedianCalc
     @list = list.sort
   end
 
-  def midpoint
-    list[list.length / 2]
-  end
-
   def shifted_midpoint(shift)
     ind = [list.length - 1, (list.length / 2) + shift].min
     list[ind]
   end
 
   def median
-    midpoint = list.length / 2
-    if a.length.even?
-      sorted[midpoint - 1, 2].sum / 2.0
+    if list.length.even?
+      list[midpoint - 1, 2].sum / 2.0
     else
-      sorted[midpoint]
+      list[midpoint]
     end
+  end
+
+  private
+
+  def midpoint
+    list.length / 2
   end
 end
