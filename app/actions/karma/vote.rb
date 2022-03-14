@@ -12,9 +12,15 @@ class Karma::Vote
   def call
     return unless [-1, 1].include?(vote)
     return if vote == 1 && votee.max_karma?
+    return if voter.karma_points < 2
 
-    karma_vote = voter.karma_votes.find_or_initialize_by(votee_id: votee.id)
-    karma_vote.vote = vote
-    karma_vote.save
+    karma_vote = votee.karma_votes.find_or_initialize_by(voter_id: voter.id)
+    return if karma_vote.persisted? && karma_vote.updated_at > 1.day.ago
+
+    ActiveRecord::Base.transaction do
+      voter.update(karma_points: voter.karma_points - 2)
+      karma_vote.vote = vote
+      karma_vote.save
+    end
   end
 end

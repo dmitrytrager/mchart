@@ -8,7 +8,8 @@ class User < ApplicationRecord
 
   has_many :charts
   has_many :comments
-  has_many :karma_votes, foreign_key: :voter_id
+  # has_many :votes_for_karma, class_name: "KarmaVote", foreign_key: :voter_id
+  has_many :karma_votes, foreign_key: :votee_id
 
   MAX_KARMA_ZERO_RATING = 4
 

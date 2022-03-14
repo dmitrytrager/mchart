@@ -2,8 +2,9 @@
 
 require "rails_helper"
 
+# rubocop:disable RSpec/MultipleExpectations
 RSpec.describe KarmaPermissions do
-  subject { described_class.new(karma: karma) }
+  subject { described_class.new(karma:) }
 
   context "when positive karma" do
     let(:karma) { 20 }
@@ -23,3 +24,4 @@ RSpec.describe KarmaPermissions do
     end
   end
 end
+# rubocop:enable RSpec/MultipleExpectations

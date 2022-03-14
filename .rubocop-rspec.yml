@@ -121,7 +121,7 @@ RSpec/AlignLeftLetBrace:
 
 RSpec/AlignRightLetBrace:
   Description: Checks that right braces for adjacent single line lets are aligned.
-  Enabled: true
+  Enabled: false
   VersionAdded: '1.16'
   StyleGuide: https://www.rubydoc.info/gems/rubocop-rspec/RuboCop/Cop/RSpec/AlignRightLetBrace
 
