@@ -25,4 +25,17 @@ class User < ApplicationRecord
   def median_rating
     MedianRating.new(charts, comments).call
   end
+
+  def last_value_date
+    default_date = DateTime.new(0)
+    [last_valued_chart&.created_at || default_date, last_valued_comment&.created_at || default_date].max
+  end
+
+  def last_valued_chart
+    charts.with_count_likes.last
+  end
+
+  def last_valued_comment
+    comments.with_count_likes.last
+  end
 end

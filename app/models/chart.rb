@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Chart < ApplicationRecord
+  include Valueable
+
   DEFAULT_ITEM_COUNT = 3
 
   belongs_to :user

@@ -12,6 +12,8 @@ class MedianRating
     chart_median = MedianCalc.new(charts)
     comments_median = MedianCalc.new(comments)
 
+    return chart_median.median if comments.size.zero?
+
     chart_median.shifted_midpoint(comments_median.median / comments.size)
   end
 end

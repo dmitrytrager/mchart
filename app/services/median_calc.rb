@@ -13,6 +13,8 @@ class MedianCalc
   end
 
   def median
+    return 0 if list.blank?
+
     if list.length.even?
       list[midpoint - 1, 2].sum / 2.0
     else
