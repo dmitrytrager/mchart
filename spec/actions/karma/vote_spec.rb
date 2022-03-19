@@ -21,6 +21,17 @@ RSpec.describe Karma::Vote do
     expect(votee.reload.karma).to eq(1)
   end
 
+  context "when voting for self" do
+    let(:votee) { voter }
+
+    it "does not create or update karma vote" do
+      subject.call
+
+      expect(created_vote).to be_nil
+      expect(voter.reload.karma_points).not_to be_zero
+    end
+  end
+
   context "when vote is not 1/-1" do
     let(:vote) { 2 }
 

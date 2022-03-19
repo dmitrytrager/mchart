@@ -10,6 +10,7 @@ class Karma::Vote
   end
 
   def call
+    return if voter.id == votee.id
     return unless [-1, 1].include?(vote)
     return if vote == 1 && votee.max_karma?
     return if voter.karma_points < 2

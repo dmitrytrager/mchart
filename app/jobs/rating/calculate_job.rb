@@ -12,8 +12,8 @@ class Rating::CalculateJob < ApplicationJob
     User.find_in_batches(batch_size: BATCH_SIZE) do |batch|
       batch.each do |user|
         time_shift = time_diff_in_days(Time.zone.now, user.last_value_date)
-
-        user.update(rating: user.median_rating - penalty(time_shift))
+        new_rating = (user.median_rating - penalty(time_shift)).round
+        user.update(rating: new_rating)
       end
     end
   end
@@ -27,6 +27,6 @@ class Rating::CalculateJob < ApplicationJob
   def penalty(shift)
     return MAX_PENALTY if shift >= MAX_SHITFT_HOURS
 
-    SHIFT_KOEF / Math.log10(shift / MAX_SHITFT_HOURS)
+    SHIFT_KOEF / Math.log10(shift.to_f / MAX_SHITFT_HOURS)
   end
 end
