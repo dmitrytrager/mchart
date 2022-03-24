@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class KarmaPermissions
+  # rubocop:disable Layout/HashAlignment
   PERMISSIONS = {
     read_only:                 1,
     one_per_day:               2,
@@ -24,6 +25,7 @@ class KarmaPermissions
     30..50   => PERMISSIONS[:publish_self_pr],
     51..     => PERMISSIONS[:invite],
   }.freeze
+  # rubocop:enable Layout/HashAlignment
 
   attr_reader :karma, :mask
 
@@ -33,9 +35,9 @@ class KarmaPermissions
   end
 
   def permissions_mask
-    KARMA_TABLE.each_with_object(0) do |mask, (range, perm)|
+    KARMA_TABLE.reduce(0) do |mask, (range, perm)|
       mask += perm
-      
+
       break mask if range.cover?(karma)
     end
   end
