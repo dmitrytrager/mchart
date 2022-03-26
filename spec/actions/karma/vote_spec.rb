@@ -3,13 +3,15 @@
 require "rails_helper"
 
 # rubocop:disable RSpec/MultipleExpectations
+# rubocop:disable RSpec/MultipleMemoizedHelpers
 RSpec.describe Karma::Vote do
   subject { described_class.new(voter, votee, vote) }
 
-  let(:voter)        { create(:user, karma_points:) }
+  let(:voter)        { create(:user, karma_points:, karma:) }
   let(:votee)        { create(:user) }
   let(:vote)         { 1 }
   let(:karma_points) { 2 }
+  let(:karma)        { 1 }
   let(:created_vote) { votee.karma_votes.find_by(voter_id: voter.id) }
 
   it "creates new vote for votee and reduces karma points for voter" do
@@ -67,6 +69,18 @@ RSpec.describe Karma::Vote do
     end
   end
 
+  context "when voter has not enough karma" do
+    before do
+      voter.update(karma: 0)
+      subject.call
+    end
+
+    it "does not create or update karma vote" do
+      expect(created_vote).to be_nil
+      expect(voter.reload.karma_points).not_to be_zero
+    end
+  end
+
   context "when karma vote was updated during last day" do
     before do
       votee.karma_votes.create(voter_id: voter.id, vote: -1)
@@ -81,3 +95,4 @@ RSpec.describe Karma::Vote do
   end
 end
 # rubocop:enable RSpec/MultipleExpectations
+# rubocop:enable RSpec/MultipleMemoizedHelpers

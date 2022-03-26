@@ -25,7 +25,7 @@ class Karma::Vote
   private
 
   def not_permitted?
-    voter_equals_votee? || wrong_vote? || max_karma_reached? || points_not_enough?
+    voter_equals_votee? || wrong_vote? || max_karma_reached? || points_not_enough? || !enough_karma?
   end
 
   def voter_equals_votee?
@@ -42,5 +42,15 @@ class Karma::Vote
 
   def points_not_enough?
     voter.karma_points < 2
+  end
+
+  def enough_karma?
+    return permissions.include?(KarmaPermissions::PERMISSIONS[:remove_ads_and_karma_vote]) if vote == 1
+
+    permissions.include?(KarmaPermissions::PERMISSIONS[:karma_vote_negative])
+  end
+
+  def permissions
+    KarmaPermissions.new(karma: voter.karma).permissions
   end
 end
