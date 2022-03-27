@@ -2,7 +2,6 @@
 
 require "rails_helper"
 
-# rubocop:disable RSpec/MultipleExpectations
 RSpec.describe KarmaResetPoints do
   let!(:user)       { create(:user) }
   let!(:other_user) { create(:user) }
@@ -18,4 +17,3 @@ RSpec.describe KarmaResetPoints do
     expect(other_user.reload.karma_points).to be_zero
   end
 end
-# rubocop:enable RSpec/MultipleExpectations

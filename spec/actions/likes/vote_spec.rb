@@ -2,7 +2,6 @@
 
 require "rails_helper"
 
-# rubocop:disable RSpec/MultipleExpectations
 RSpec.describe Likes::Vote do
   subject { described_class.new(voter, voteable) }
 
@@ -56,4 +55,3 @@ RSpec.describe Likes::Vote do
     end
   end
 end
-# rubocop:enable RSpec/MultipleExpectations

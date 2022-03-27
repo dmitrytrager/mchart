@@ -2,7 +2,6 @@
 
 require "rails_helper"
 
-# rubocop:disable RSpec/MultipleExpectations
 RSpec.describe KarmaReset do
   subject { described_class.new(user) }
 
@@ -21,4 +20,3 @@ RSpec.describe KarmaReset do
     expect(user.karma_votes).to be_empty
   end
 end
-# rubocop:enable RSpec/MultipleExpectations

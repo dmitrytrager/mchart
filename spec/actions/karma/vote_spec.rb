@@ -2,8 +2,6 @@
 
 require "rails_helper"
 
-# rubocop:disable RSpec/MultipleExpectations
-# rubocop:disable RSpec/MultipleMemoizedHelpers
 RSpec.describe Karma::Vote do
   subject { described_class.new(voter, votee, vote) }
 
@@ -94,5 +92,3 @@ RSpec.describe Karma::Vote do
     end
   end
 end
-# rubocop:enable RSpec/MultipleExpectations
-# rubocop:enable RSpec/MultipleMemoizedHelpers
