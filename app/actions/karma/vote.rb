@@ -4,8 +4,8 @@ class Karma::Vote
   attr_reader :voter, :votee, :vote
 
   def initialize(voter, votee, vote)
-    @voter = voter
-    @votee = votee
+    @voter = voter.reload
+    @votee = votee.reload
     @vote = vote
   end
 

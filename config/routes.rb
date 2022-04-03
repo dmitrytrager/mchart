@@ -9,11 +9,13 @@ Rails.application.routes.draw do
   end
 
   devise_for :users
+  resources :users, only: [] do
+    resources :karma_votes, only: %i[create update]
+  end
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   resources :charts do
     resources :likes, only: :create
-    resources :karma_votes, only: %i[create update]
     resources :comments, only: %i[create edit update delete]
   end
 
