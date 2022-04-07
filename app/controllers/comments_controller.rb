@@ -2,20 +2,20 @@
 
 class CommentsController < ApplicationController
   before_action :authenticate_user!
-  before_action :fetch_comment, only: %i[create update delete]
+  before_action :fetch_comment, only: %i[edit update destroy]
 
   def create
-    current_user.comments.create(comment_params)
+    Comments::Create.new(current_user, Chart.find(params[:chart_id]), comment_params).call
   end
 
   def edit; end
 
   def update
-    comment.update(comment_params)
+    @comment.update(comment_params)
   end
 
-  def delete
-    comment.destroy
+  def destroy
+    @comment.destroy
   end
 
   private

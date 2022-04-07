@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   resources :charts do
     resources :likes, only: :create
-    resources :comments, only: %i[create edit update delete]
+    resources :comments, only: %i[create edit update destroy]
   end
 
   # Defines the root path route ("/")

@@ -7,6 +7,7 @@ class Chart < ApplicationRecord
 
   belongs_to :user
   has_many :likes, as: :voteable
+  has_many :comments
 
   validates :title, :description, presence: true
   validates :items, presence: true

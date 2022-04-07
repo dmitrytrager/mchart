@@ -13,6 +13,10 @@ class User < ApplicationRecord
 
   MAX_KARMA_ZERO_RATING = 4
 
+  def karma
+    karma_votes.map { |v| v.vote }.sum
+  end
+
   def max_karma?
     rating.zero? && karma == MAX_KARMA_ZERO_RATING
   end
