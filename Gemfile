@@ -83,6 +83,7 @@ group :development, :test do
   gem "rubocop-rails", require: false
   gem "rubocop-rspec", require: false
   gem "slim_lint", require: false
+  gem "timecop"
 end
 
 group :development do
