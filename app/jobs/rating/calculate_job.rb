@@ -12,7 +12,7 @@ class Rating::CalculateJob < ApplicationJob
     User.find_in_batches(batch_size: BATCH_SIZE) do |batch|
       batch.each do |user|
         time_shift = time_diff_in_days(Time.zone.now, user.last_value_date)
-        new_rating = (user.median_rating - penalty(time_shift)).round
+        new_rating = [(user.median_rating - penalty(time_shift)).round, 0].max
         user.update(rating: new_rating)
       end
     end

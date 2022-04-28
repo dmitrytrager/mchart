@@ -107,12 +107,12 @@ RSpec.describe Karma, type: :integration do
   end
 
   # day 0 values
-  let!(:karma_1)    { user.karma }
-  let!(:karma_2)    { other_user.karma }
-  let!(:karma_pt_1) { user.reload.karma_points }
-  let!(:karma_pt_2) { other_user.reload.karma_points }
-  let!(:rating_1)   { user.median_rating }
-  let!(:rating_2)   { other_user.median_rating }
+  let!(:karma_1)      { user.karma }
+  let!(:karma_2)      { other_user.karma }
+  let!(:karma_pt_1)   { user.reload.karma_points }
+  let!(:karma_pt_2)   { other_user.reload.karma_points }
+  let!(:med_rating_1) { user.median_rating }
+  let!(:med_rating_2) { other_user.median_rating }
 
   before { Rails.logger = Logger.new($stdout) }
 
@@ -121,10 +121,10 @@ RSpec.describe Karma, type: :integration do
     expect(karma_1).to be_present
     Rails.logger.info("Karma2: #{karma_2}")
     expect(karma_2).to be_present
-    Rails.logger.info("Rating1: #{rating_1}")
-    expect(rating_1).to be_present
-    Rails.logger.info("Rating2: #{rating_2}")
-    expect(rating_2).to be_present
+    Rails.logger.info("Rating1: #{med_rating_1}")
+    expect(med_rating_1).to be_present
+    Rails.logger.info("Rating2: #{med_rating_2}")
+    expect(med_rating_2).to be_present
   end
 
   it "allow to vote for karma and likes" do
@@ -141,9 +141,25 @@ RSpec.describe Karma, type: :integration do
     expect(other_user.karma_points).to eq(karma_pt_2)
   end
 
+  it "checks that ratings equal on zero day" do
+    Rating::CalculateJob.new.perform
+
+    expect(med_rating_1).to eq(user.reload.rating)
+    expect(med_rating_2).to eq(other_user.reload.rating)
+  end
+
   [1, 10, 30, 100].each do |period|
     it "calculates rating after #{period} days" do
       Timecop.travel(period.days.after) do
+        Rating::CalculateJob.new.perform
+
+        expect(user.median_rating).not_to eq(user.reload.rating)
+        expect(other_user.median_rating).not_to eq(other_user.reload.rating)
+
+        if period == 100
+          expect(user.reload.rating).to be_zero
+          expect(other_user.reload.rating).to be_zero
+        end
       end
     end
   end
