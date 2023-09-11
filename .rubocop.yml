@@ -1,9 +1,9 @@
 # rubocop.yml
 
 inherit_from:
-  - '.rubocop-performance.yml'
-  - '.rubocop-rails.yml'
-  - '.rubocop-rspec.yml'
+  - ".rubocop-performance.yml"
+  - ".rubocop-rails.yml"
+  - ".rubocop-rspec.yml"
 
 require:
   - rubocop-performance
@@ -11,6 +11,7 @@ require:
   - rubocop-rspec
 
 AllCops:
+  # NewCops: enable
   Exclude:
     - bin/**/*
     - db/**/*
@@ -18,8 +19,8 @@ AllCops:
     - tmp/**/*
     - node_modules/**/*
 
-Gemspec/DateAssignment: # new in 1.10
-  Enabled: true
+# Gemspec/DeprecatedAttributeAssignment: # new in 1.10
+#   Enabled: true
 Gemspec/RequireMFA: # new in 1.23
   Enabled: true
 
