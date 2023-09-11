@@ -12,7 +12,7 @@ html
 
   body
     = render ::Application::NavigationComponent.new
-    = render ::Application::MessagesComponent.new(flash: flash)
+    = render ::Application::MessagesComponent.new(flash:)
 
     main.container.mx-auto.mt-28.px-5.flex
       div

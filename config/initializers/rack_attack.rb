@@ -31,8 +31,10 @@ Rack::Attack.safelist "internal user agent" do |req|
   req.user_agent == "InternalUserAgent"
 end
 
-Rack::Attack.cache.store = Redis.new(
-  host: Rails.application.credentials.redis[:host],
-  port: Rails.application.credentials.redis[:port],
-  network_timeout: 5,
-)
+unless Rails.env.test?
+  Rack::Attack.cache.store = Redis.new(
+    host: Rails.application.credentials.redis[:host],
+    port: Rails.application.credentials.redis[:port],
+    network_timeout: 5,
+  )
+end
