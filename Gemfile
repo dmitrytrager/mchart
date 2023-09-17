@@ -8,52 +8,37 @@ ruby "3.2.2"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.8"
 
-# The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
-gem "sprockets-rails"
-
 gem "foreman"
+gem "kamal"
+gem "pg", "~> 1.1" # Use postgresql as the database for Active Record
+gem "pg_search"
+gem "puma", "~> 5.6" # Use the Puma web server [https://github.com/puma/puma]
+gem "redis", "~> 4.0" # Use Redis adapter to run Action Cable in production
 
-# Use postgresql as the database for Active Record
-gem "pg", "~> 1.1"
-
-# Use the Puma web server [https://github.com/puma/puma]
-gem "puma", "~> 5.0"
-# Try to use falcon instead
-# gem "falcon"
-
-# Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
-gem "importmap-rails"
-
-# Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
-gem "turbo-rails"
-
-# Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
-gem "stimulus-rails"
-
-# Use Tailwind CSS [https://github.com/rails/tailwindcss-rails]
-gem "tailwindcss-rails"
-
-# Use slim for templates
+# assets
+gem "importmap-rails" # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
+gem "propshaft" # The modern asset pipeline for Rails [https://github.com/rails/propshaft]
 gem "slim-rails"
+gem "stimulus-rails" # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
+gem "tailwindcss-rails" # Use Tailwind CSS [https://github.com/rails/tailwindcss-rails]
+gem "turbo-rails" # Hotwire"s SPA-like page accelerator [https://turbo.hotwired.dev]
 
 # Use view_component to manage components and markup
-gem "view_component"
+gem "view_component", "~> 2.80"
+gem "view_component-contrib", "~> 0.1.1"
 
 # Use simple_form to build forms
 gem "simple_form"
 gem "simple_form_tailwind_css"
 
-# Use Redis adapter to run Action Cable in production
-gem "redis", "~> 4.0"
-
 # Use Devise for authentication of users
 gem "devise"
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
-# gem "kredis"
+gem "kredis"
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
-# gem "bcrypt", "~> 3.1.7"
+gem "bcrypt", "~> 3.1.7"
 
 # Use administrate to administrate users and charts
 gem "administrate"
@@ -72,28 +57,33 @@ gem "rack-attack"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem "awesome_print"
+  gem "amazing_print"
   gem "debug", platforms: %i[mri mingw x64_mingw]
 
   gem "factory_bot_rails"
   gem "faker"
   gem "mutant-rspec"
+  gem "pry-remote"
+  # gem "rails-controller-testing"
   gem "rspec-rails"
+  gem "webrick" # required by capybara servers
 
   gem "rubocop", require: false
   gem "rubocop-performance", require: false
   gem "rubocop-rails", require: false
   gem "rubocop-rspec", require: false
   gem "slim_lint", require: false
-  gem "timecop"
+
+  gem "rspec_junit_formatter"
 end
 
 group :development do
-  # Use console on exceptions pages [https://github.com/rails/web-console]
-  gem "web-console"
-
-  # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
-  # gem "rack-mini-profiler"
+  gem "bullet"
+  gem "dockerfile-rails"
+  gem "letter_opener"
+  gem "maily"
+  gem "rack-mini-profiler" # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
+  gem "web-console" # Use console on exceptions pages [https://github.com/rails/web-console]
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
@@ -102,6 +92,13 @@ end
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
+  gem "capybara_discoball"
   gem "cuprite"
   gem "database_cleaner"
+  gem "launchy"
+  gem "rspec-sidekiq"
+  # gem "selenium-webdriver"
+  gem "timecop"
+  # gem "webdrivers"
+  gem "webmock"
 end
