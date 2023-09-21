@@ -13,7 +13,6 @@ gem "kamal"
 gem "pg", "~> 1.1" # Use postgresql as the database for Active Record
 gem "pg_search"
 gem "puma", "~> 5.6" # Use the Puma web server [https://github.com/puma/puma]
-gem "redis", "~> 4.0" # Use Redis adapter to run Action Cable in production
 
 # assets
 gem "importmap-rails" # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
@@ -23,28 +22,18 @@ gem "stimulus-rails" # Hotwire's modest JavaScript framework [https://stimulus.h
 gem "tailwindcss-rails" # Use Tailwind CSS [https://github.com/rails/tailwindcss-rails]
 gem "turbo-rails" # Hotwire"s SPA-like page accelerator [https://turbo.hotwired.dev]
 
+# views
+gem "simple_form" # Use simple_form to build forms
+gem "simple_form_tailwind_css"
 # Use view_component to manage components and markup
 gem "view_component", "~> 2.80"
 gem "view_component-contrib", "~> 0.1.1"
 
-# Use simple_form to build forms
-gem "simple_form"
-gem "simple_form_tailwind_css"
-
-# Use Devise for authentication of users
-gem "devise"
-
-# Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
-gem "kredis"
-
-# Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
-gem "bcrypt", "~> 3.1.7"
-
-# Use administrate to administrate users and charts
-gem "administrate"
-
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
+gem "administrate" # Use administrate to administrate users and charts
+gem "bcrypt", "~> 3.1.7" # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
+gem "devise" # Use Devise for authentication of users
+gem "rack-attack" # User rack-attack to throttle requests
+gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby] # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 
 # Use Sass to process CSS
 # gem "sassc-rails"
@@ -52,8 +41,15 @@ gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
-# User rack-attack to throttle requests
-gem "rack-attack"
+gem "redis", "~> 4.0" # Use Redis adapter to run Action Cable in production
+gem "kredis" # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
+gem "redis-namespace"
+gem "sidekiq"
+gem "sidekiq-batch"
+
+gem "sentry-rails"
+gem "sentry-ruby"
+gem "sentry-sidekiq"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

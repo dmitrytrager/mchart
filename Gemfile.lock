@@ -298,6 +298,8 @@ GEM
     redis (4.5.1)
     redis-client (0.17.0)
       connection_pool
+    redis-namespace (1.11.0)
+      redis (>= 4)
     regexp_parser (2.8.1)
     reline (0.3.1)
       io-console (~> 0.5)
@@ -373,11 +375,21 @@ GEM
       sprockets-rails
       tilt
     selectize-rails (0.12.6)
+    sentry-rails (5.11.0)
+      railties (>= 5.0)
+      sentry-ruby (~> 5.11.0)
+    sentry-ruby (5.11.0)
+      concurrent-ruby (~> 1.0, >= 1.0.2)
+    sentry-sidekiq (5.11.0)
+      sentry-ruby (~> 5.11.0)
+      sidekiq (>= 3.0)
     sidekiq (7.1.4)
       concurrent-ruby (< 2)
       connection_pool (>= 2.3.0)
       rack (>= 2.2.4)
       redis-client (>= 0.14.0)
+    sidekiq-batch (0.1.9)
+      sidekiq (>= 3)
     simple_form (5.1.0)
       actionpack (>= 5.2)
       activemodel (>= 5.2)
@@ -491,6 +503,7 @@ DEPENDENCIES
   rack-mini-profiler
   rails (~> 7.0.8)
   redis (~> 4.0)
+  redis-namespace
   rspec-rails
   rspec-sidekiq
   rspec_junit_formatter
@@ -498,6 +511,11 @@ DEPENDENCIES
   rubocop-performance
   rubocop-rails
   rubocop-rspec
+  sentry-rails
+  sentry-ruby
+  sentry-sidekiq
+  sidekiq
+  sidekiq-batch
   simple_form
   simple_form_tailwind_css
   slim-rails
