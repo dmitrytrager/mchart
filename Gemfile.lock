@@ -164,7 +164,7 @@ GEM
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
     json (2.6.3)
-    kamal (0.16.1)
+    kamal (1.0.0)
       activesupport (>= 7.0)
       bcrypt_pbkdf (~> 1.0)
       concurrent-ruby (~> 1.2)

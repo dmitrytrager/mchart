@@ -9,7 +9,6 @@ ruby "3.2.2"
 gem "rails", "~> 7.0.8"
 
 gem "foreman"
-gem "kamal"
 gem "pg", "~> 1.1" # Use postgresql as the database for Active Record
 gem "pg_search"
 gem "puma", "~> 5.6" # Use the Puma web server [https://github.com/puma/puma]
@@ -41,8 +40,8 @@ gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby] # Windows does not
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
-gem "redis", "~> 4.0" # Use Redis adapter to run Action Cable in production
 gem "kredis" # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
+gem "redis", "~> 4.0" # Use Redis adapter to run Action Cable in production
 gem "redis-namespace"
 gem "sidekiq"
 gem "sidekiq-batch"
@@ -58,6 +57,7 @@ group :development, :test do
 
   gem "factory_bot_rails"
   gem "faker"
+  gem "kamal"
   gem "mutant-rspec"
   gem "pry-remote"
   # gem "rails-controller-testing"
