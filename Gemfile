@@ -29,10 +29,12 @@ gem "view_component", "~> 2.80"
 gem "view_component-contrib", "~> 0.1.1"
 
 gem "administrate" # Use administrate to administrate users and charts
-gem "bcrypt", "~> 3.1.7" # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
+# Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
+gem "bcrypt", "~> 3.1.7"
 gem "devise" # Use Devise for authentication of users
 gem "rack-attack" # User rack-attack to throttle requests
-gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby] # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
 
 # Use Sass to process CSS
 # gem "sassc-rails"
@@ -57,7 +59,7 @@ group :development, :test do
 
   gem "factory_bot_rails"
   gem "faker"
-  gem "kamal"
+  gem "kamal", require: false
   gem "mutant-rspec"
   gem "pry-remote"
   # gem "rails-controller-testing"
