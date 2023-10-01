@@ -57,9 +57,9 @@ RUN apt-get update -qq && \
   rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
 # Copy built artifacts: gems, application
-COPY --from=build --chown=1001:1001 $BUNDLE_PATH $BUNDLE_PATH
-COPY --from=build --chown=1001:1001 $RAILS_ROOT $RAILS_ROOT
-RUN chown -R 1001:1001 db log storage tmp
+COPY --from=build --chown=10001:10001 $BUNDLE_PATH $BUNDLE_PATH
+COPY --from=build --chown=10001:10001 $RAILS_ROOT $RAILS_ROOT
+# RUN chown -R 1001:1001 db log storage tmp
 USER $APP_USER
 
 # Deployment options
